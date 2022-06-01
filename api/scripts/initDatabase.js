@@ -1,28 +1,27 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
+const spotSchema = require('./models/spot')
+const userSchema = require('./models/user')
 
-var options = {
+const options = {
     connectTimeoutMS: 5000,
     useNewUrlParser: true,
     useUnifiedTopology: true
 }
 
-mongoose.connect('mongodb+srv://admin:30094561@cluster0.xutoc.mongodb.net/?retryWrites=true&w=majority',
-    options,
-    function(err) {
-        console.log(err)
+const db = 'mongodb://127.0.0.1/where2work';
+
+function init() {
+
+    mongoose.connect(db ,options, (error) => {
+        if (error) {
+            console.log(error)
+        } else {
+            console.log("Connected to mongoDB")
+        }
     })
+    
+    const Spot = mongoose.model('Spot', spotSchema)
+    const User = mongoose.model('User', userSchema)
+}
 
-var userSchema = mongoose.Schema({
-    name: String,
-    email: String,
-    password: String
-})
-
-var spotSchema = mongoose.Schema({
-    name: String,
-    adress: String,
-    rating: Number,
-})
-
-var userModel = mongoose.model('users', userSchema)
-var spotModel = mongoose.model('spots', spotSchema)
+module.exports = init()
