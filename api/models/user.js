@@ -9,6 +9,7 @@ const userSchema = mongoose.Schema({
     firstname: { type: String, required: false },
     lastname: { type: String, required: false },
     image: { type: String, required: false },
+    permissions : { type: String, required: true },
 })
 
 module.exports = userSchema
