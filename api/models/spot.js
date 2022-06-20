@@ -1,14 +1,16 @@
 const mongoose = require("mongoose")
 
 const spotSchema = mongoose.Schema({
-    id: { type: String, required: true, index: { unique: true } },
-    name: String,
-    adress: String,
+    id: { type: string, required: true, index: { unique: true } },
+    name: string,
+    adress: string,
+    type: string,
+    wifi: Boolean,
     rating: Number,
     lat: Number,
     lng: Number,
-    description: String,
-    tel: String,
+    description: string,
+    tel: string,
 })
 
 module.exports = spotSchema
