@@ -6,7 +6,7 @@ const Dashboard = ({ navigation: { navigate } }) => {
 
   return (
     <View style={styles.container}>
-      <Text>TEST DASHBOARDDD</Text>
+      <Text>TEST DASHBOARD</Text>
     </View>
   )
 }
@@ -14,6 +14,8 @@ const Dashboard = ({ navigation: { navigate } }) => {
 
 const styles = StyleSheet.create({
   container: {
+    alignItems: 'center',
+    justifyContent: 'center',
     flex: 1,
   },
 });
