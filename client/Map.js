@@ -12,8 +12,9 @@ const LATITUDE_DELTA = 0.3;
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 
 useEffect(() => {
-    fetch(URL)
-            .then((res) => res.json());
+console.log("hello")
+fetch('http://127.0.0.1:3000/spots')
+        .then((res) => console.log("RESPONSE :", res.json()));
 },[])
 
 
