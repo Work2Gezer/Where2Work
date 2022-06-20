@@ -5,9 +5,17 @@ const Dashboard = ({ navigation: { navigate } }) => {
 
 
   return (
+    <>
     <View style={styles.container}>
       <Text>TEST DASHBOARD</Text>
+      <Button
+  onPress={() =>
+   navigate('Map')
+ }
+  title="click Map"
+/>
     </View>
+    </>
   )
 }
 

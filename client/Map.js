@@ -1,21 +1,27 @@
 import React from 'react'
 import {
     View,
+    Text,
     StyleSheet
 } from 'react-native'
 
-export default function Map(){
+const Map = ({ navigation: { navigate } }) => {
 
-    return(
-        <View style={styles.body}>
-
+    return (
+        <>
+        <View style={styles.container}>
+            <Text>ICI CEST LA MAP</Text>
         </View>
+        </>
     )
 }
 
 const styles = StyleSheet.create({
-    body: {
-        flex: 1,
-        alignItems: 'center'
-    }
-})
+    container: {
+      alignItems: 'center',
+      justifyContent: 'center',
+      flex: 1,
+    },
+  });
+
+  export default Map;
