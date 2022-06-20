@@ -1,0 +1,116 @@
+[
+    {
+        "spot":[
+            {
+                "name": "Starbucks Capucines",
+                "adress":"3 Bd des Capucines, 75002 Paris",
+                "rating":4.1,
+                "type": "cafe",
+                "wifi":true,
+                "lat":48.870690,
+                "lng":2.333560,
+                "description":"Chaîne de cafés basée à Seattle proposant une torréfaction maison, des collations et un accès Wi-Fi.",
+                "tel":"01 42 68 11 20"
+            },
+            {
+                "name": "Starbucks Opera",
+                "adress":"26 Av. de l'Opéra, 75001 Paris",
+                "rating":4.0,
+                "type": "cafe",
+                "wifi":true,
+                "lat":48.867080,
+                "lng":2.334070,
+                "description":"Chaîne de cafés basée à Seattle proposant une torréfaction maison, des collations et un accès Wi-Fi.",
+                "tel":"01 40 20 08 37"
+            },
+            {
+                "name": "Starbucks Opera",
+                "adress":"76-78 Av. des Champs-Élysées, 75008 Paris",
+                "rating":3.9,
+                "type": "cafe",
+                "wifi":true,
+                "lat":48.870911,
+                "lng":2.303870,
+                "description":"Chaîne de cafés basée à Seattle proposant une torréfaction maison, des collations et un accès Wi-Fi.",
+                "tel":"01 42 25 04 32"
+            },
+            {
+                "name": "Parc Monceau",
+                "adress":"35 Bd de Courcelles, 75008 Paris",
+                "type": "parc",
+                "wifi":false,
+                "rating":3.9,
+                "lat":48.880520,
+                "lng":2.311240,
+                "description":"Un parc bien stylé et équipé pour vous permettre de vous déplacer en toute sécurité.",
+                "tel":"01 77 12 92 25"
+            },
+            {
+                "name": "Parc des Buttes-Chaumont",
+                "adress":"1 Rue Botzaris, 75019 Paris",
+                "type": "parc",
+                "wifi":false,
+                "rating":4.6,
+                "lat":48.876469,
+                "lng":2.381020,
+                "description":"Un parc bien stylé et équipé pour vous permettre de vous déplacer en toute sécurité.",
+                "tel":"01 77 12 92 25"
+            },
+            {
+                "name": "Parc Monceau",
+                "adress":"35 Bd de Courcelles, 75008 Paris",
+                "type": "parc",
+                "wifi":false,
+                "rating":3.9,
+                "lat":48.880520,
+                "lng":2.311240,
+                "description":"Un parc bien stylé et équipé pour vous permettre de vous déplacer en toute sécurité.",
+                "tel":"01 77 12 92 25"
+            },
+            {
+                "name": "Parc La Villette",
+                "adress":"211 Av. Jean Jaurès, 75019 Paris",
+                "type": "parc",
+                "wifi":false,
+                "rating":1.0,
+                "lat":48.894456,
+                "lng":2.389612,
+                "description":"",
+                "tel":"01 40 03 75 75"
+            },
+            {
+                "name": "Jardin d'Acclimatation",
+                "adress":"Bois de Boulogne, Rte de la Prte Dauphine à la Prte des Sablons, 75116 Paris",
+                "type": "parc",
+                "wifi":false,
+                "rating":4.3,
+                "lat":48.878145,
+                "lng":2.265930,
+                "description":"Un jardin d'acclimatation pour vous permettre de vous déplacer en toute sécurité.",
+                "tel":"01 40 67 90 85"
+            },
+            {
+                "name": "Bibliothèque Arthur Rimbaud",
+                "adress":"2 Pl. Baudoyer, 75004 Paris",
+                "type": "bibliotheque",
+                "wifi":true,
+                "rating":4.3,
+                "lat":48.856159,
+                "lng":2.355967,
+                "description":"Bibiothèque un lieu calmement où vous pouvez vous reposer et vous découvrir.",
+                "tel":"01 44 54 76 70"
+            },
+            {
+                "name": "Jardin d'Acclimatation",
+                "adress":"Bois de Boulogne, Rte de la Prte Dauphine à la Prte des Sablons, 75116 Paris",
+                "type": "parc",
+                "wifi":false,
+                "rating":4.3,
+                "lat":48.878145,
+                "lng":2.265930,
+                "description":"Un jardin d'acclimatation pour vous permettre de vous déplacer en toute sécurité.",
+                "tel":"01 40 67 90 85"
+            }
+        ]
+    }
+]

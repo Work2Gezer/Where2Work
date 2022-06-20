@@ -4,13 +4,13 @@ const Spot = require('../models/spot');
 
 const SpotDb = mongoose.model('Spot', spotSchema)
 
-// Get all users
+// Get all spots
 router.get("/", async (req, res) => {
 	const spots = await SpotDb.find()
 	res.send(spots)
 })
 
-//Get one user by id
+//Get one spot by id
 router.get('/:id', function(req, res, next) {
   SpotDb.findOne(req.params.id, function(err, spot) {
     if (err) return next(err);
@@ -18,7 +18,7 @@ router.get('/:id', function(req, res, next) {
   });
 });
 
-// Create a new user
+// Create a new spot
 router.post("/", async (req, res) => {
 	const spot = new SpotDb({
 		id : short.generate(),
@@ -34,7 +34,7 @@ router.post("/", async (req, res) => {
 })
 
 
-//Delete one user by id 
+//Delete one spot by id 
 router.delete("/:id", async (req, res) => {
 	try {
 		await SpotDb.deleteOne({id: req.params.id })
