@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const spotSchema = require('../models/spot')
 const userSchema = require('../models/user')
 const data = require('./data.json')
+require('dotenv').config()
 
 const options = {
     connectTimeoutMS: 5000,
@@ -9,7 +10,8 @@ const options = {
     useUnifiedTopology: true
 }
 
-const db = 'mongodb://127.0.0.1/where2work';
+// const db = 'mongodb://127.0.0.1/where2work';
+const db = `mongodb+srv://${process.env.LOGIN}:${process.env.PASS}@cluster0.xts0j.mongodb.net/?retryWrites=true&w=majority`
 
 function init() {
 
@@ -20,8 +22,6 @@ function init() {
             console.log("Connected to mongoDB")
             const Spot = mongoose.model('Spot', spotSchema)
             const User = mongoose.model('User', userSchema)
-            // const SpotSchema = new Spot(spotSchema)
-            // const UserSchema = new User(userSchema)
             const spotsData = data[0].spots
             const usersData = data[0].users
             Spot.create(spotsData, (error, spots) => {
@@ -31,13 +31,6 @@ function init() {
                     console.log("Spots created")
                 }
             })
-            // User.create(usersData, (error, users) => {
-            //     if (error) {
-            //         console.log(error)
-            //     } else {
-            //         console.log("Users created")
-            //     }
-            // })
             for(let spot of spotsData) {
                 const newSpot = new Spot(spot)
                 newSpot.save()
@@ -46,11 +39,9 @@ function init() {
                 const newUser = new User(user)
                 newUser.save()
             }
-            // mongoose.disconnect()
-            return
         }
     })
-   
+    mongoose.connection.close()
 }
 
 module.exports = init()
