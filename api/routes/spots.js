@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const Spot = require('../models/spot');
+const mongoose = require('mongoose');
 
-const SpotDb = mongoose.model('Spot', spotSchema)
+const SpotDb = mongoose.model('Spot', Spot)
 
 // Get all spots
 router.get("/", async (req, res) => {
@@ -22,12 +23,12 @@ router.get('/:id', function(req, res, next) {
 router.post("/", async (req, res) => {
 	const spot = new SpotDb({
 		id : short.generate(),
-    name : req.body.username,
-    adress : req.body.adress,
-    description : req.body.description ?? "",
-    tel : req.body.tel,
-    lat : req.body.lat,
-    lng : req.body.lng,
+		name : req.body.username,
+		adress : req.body.adress,
+		description : req.body.description ?? "",
+		tel : req.body.tel,
+		lat : req.body.lat,
+		lng : req.body.lng,
 	})
 	await spot.save()
 	res.send(spot)
