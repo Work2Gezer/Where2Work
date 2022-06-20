@@ -5,15 +5,25 @@ const Dashboard = ({ navigation: { navigate } }) => {
 
 
   return (
+    <>
     <View style={styles.container}>
-      <Text>TEST DASHBOARDDD</Text>
+      <Text>TEST DASHBOARD</Text>
+      <Button
+  onPress={() =>
+   navigate('Map')
+ }
+  title="click Map"
+/>
     </View>
+    </>
   )
 }
 
 
 const styles = StyleSheet.create({
   container: {
+    alignItems: 'center',
+    justifyContent: 'center',
     flex: 1,
   },
 });
