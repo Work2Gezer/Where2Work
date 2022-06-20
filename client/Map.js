@@ -1,21 +1,21 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import { View, Text, StyleSheet, Dimensions } from "react-native";
 import MapView from "react-native-maps";
 
 
-const Map = ({ navigation: { navigate } }) => {
+const Map = () => {
 
-const [spots, setSpots] = useState()
+  const [spots, setSpots] = useState()
 
-const ASPECT_RATIO = Dimensions.get("window").width / Dimensions.get("window").height;
-const LATITUDE_DELTA = 0.3;
-const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
+  const ASPECT_RATIO = Dimensions.get("window").width / Dimensions.get("window").height;
+  const LATITUDE_DELTA = 0.3;
+  const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 
-useEffect(() => {
-console.log("hello")
-fetch('http://127.0.0.1:3000/spots')
-        .then((res) => console.log("RESPONSE :", res.json()));
-},[])
+  useEffect(() => {
+    console.log("hello")
+    fetch('http://127.0.0.1:3000/spots')
+      .then((res) => console.log("RESPONSE :", res.json()));
+  }, [])
 
 
 
