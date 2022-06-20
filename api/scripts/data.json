@@ -1,6 +1,6 @@
 [
     {
-        "spot":[
+        "spots":[
             {
                 "name": "Starbucks Capucines",
                 "adress":"3 Bd des Capucines, 75002 Paris",
@@ -110,6 +110,18 @@
                 "lng":2.265930,
                 "description":"Un jardin d'acclimatation pour vous permettre de vous déplacer en toute sécurité.",
                 "tel":"01 40 67 90 85"
+            }
+        ],
+        "users":[
+            {
+                "username":"John",
+                "password":"pass",
+                "email":"test"
+            },
+            {
+                "username":"Jean",
+                "password":"puss",
+                "email":"tust"
             }
         ]
     }
