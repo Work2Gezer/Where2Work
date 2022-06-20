@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const Spot = require('../models/spot');
+const mongoose = require('mongoose');
 
-const SpotDb = mongoose.model('Spot', spotSchema)
+const SpotDb = mongoose.model('Spot', Spot)
 
 // Get all spots
 router.get("/", async (req, res) => {

@@ -116,7 +116,8 @@
             {
                 "username":"John",
                 "password":"pass",
-                "email":"test"
+                "email":"test",
+                "permissions": "admin"
             },
             {
                 "username":"Jean",

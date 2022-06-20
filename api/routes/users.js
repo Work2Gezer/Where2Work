@@ -2,9 +2,10 @@ const express = require('express');
 const User = require('../models/user');
 const router = express.Router();
 const short = require('short-uuid');
+const mongoose = require('mongoose');
 
 
-const UserDb = mongoose.model('User', userSchema)
+const UserDb = mongoose.model('User', User)
 
 // Get all users
 router.get("/", async (req, res) => {
