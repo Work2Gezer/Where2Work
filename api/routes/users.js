@@ -24,10 +24,10 @@ router.get('/:id', function(req, res, next) {
 router.post("/", async (req, res) => {
 	const user = new UserDb({
 		id : short.generate(),
-    username : req.body.username,
-    password : req.body.password,
-    email : req.body.email,
-    permissions: req.body.permissions ?? "user",
+		username : req.body.username,
+		password : req.body.password,
+		email : req.body.email,
+		permissions: req.body.permissions ?? "user",
 	})
 	await user.save()
 	res.send(user)
@@ -37,10 +37,10 @@ router.post("/", async (req, res) => {
 router.post("/admin", async (req, res) => {
 	const user = new UserDb({
 		id : String(short.generate()),
-    username : req.body.username,
-    password : req.body.password,
-    email : req.body.email,
-    permissions: req.body.permissions ?? "admin",
+		username : req.body.username,
+		password : req.body.password,
+		email : req.body.email,
+		permissions: req.body.permissions ?? "admin",
 	})
 	await user.save()
 	res.send(user)
@@ -56,5 +56,7 @@ router.delete("/:id", async (req, res) => {
 		res.send({ error: "User doesn't exist!" })
 	}
 })
+
+
 
 module.exports = router;
