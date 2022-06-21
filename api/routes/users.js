@@ -5,10 +5,14 @@ const short = require('short-uuid');
 const mongoose = require('mongoose');
 const {isEmail, isPassword} = require('../scripts/services.js')
 const {error_en} = require('../models/error') //change language here 
+const { initdb } = require('../scripts/connection.js')
 
+initdb()
 
 const UserDb = mongoose.model('User', User)
 const saltRounds = 10;
+
+
 
 // Get all users
 router.get("/", async (req, res) => {
