@@ -1,20 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, View, Image, TouchableHighlight, ScrollView, Button } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
+import Map from './Map';
 
 const Dashboard = ({ navigation: { navigate } }) => {
 
 
   return (
     <>
-    <View style={styles.container}>
-      <Text>TEST DASHBOARD</Text>
-      <Button
-  onPress={() =>
-   navigate('Map')
- }
-  title="click Map"
-/>
-    </View>
+      <View style={styles.container}>
+        <Map />
+        <Button
+          onPress={() =>
+            navigate('LogInPage')
+          }
+          title="Log toi batard"
+        />
+      </View>
     </>
   )
 }
