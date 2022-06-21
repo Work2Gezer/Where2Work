@@ -3,10 +3,11 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-
+const mongoose = require('mongoose');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const spotsRouter = require('./routes/spots');
+require('dotenv').config()
 
 
 const app = express();
@@ -29,6 +30,7 @@ app.use('/spots', spotsRouter);
 app.use(function(req, res, next) {
   next(createError(404));
 });
+
 
 // error handler
 app.use(function(err, req, res, next) {
