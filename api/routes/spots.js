@@ -20,7 +20,7 @@ router.get('/:id', function(req, res, next) {
 });
 
 // Create a new spot
-router.post("/", async (req, res) => {
+router.post("/add", async (req, res) => {
 	const spot = new SpotDb({
 		id : short.generate(),
 		name : req.body.username,

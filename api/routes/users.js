@@ -16,22 +16,39 @@ router.get("/", async (req, res) => {
 	res.send(users)
 })
 
+// Register a new user
+router.post("/signup", async (req, res) => {
+    const body = req.body;
+    if (!(body.email && body.password)) {
+      return res.status(400).send({ error: error_en.empty });
+    }
+    const user = new UserDb(body);
+    const salt = await bcrypt.genSalt(saltRounds);
+    user.password = await bcrypt.hash(user.password, salt);
+    user.save().then((doc) => res.status(201).send(doc));
+  });
+
 //login user by email and password
 router.get('/login', async (req, res) => {
-	if(isEmail(req.body.email)){
-		const user = await UserDb.findOne({ email: req.body.email })
-		if (user) {
-			bcrypt.compare(req.body.password, hash, function(err, result) {
-				if (result) {
-					res.send(user)
-				} else {
-					res.status(401).send({ error: error_en.login })
-				}
-			});
-			
-		} else {
-			res.status(401).send({ error: error_en.login})
+	const body = req.body;
+	if (!body.email || !body.password) {
+        return res.status(400).json({ message: error_en.empty })
+    }
+	if(isEmail(body.email)){
+		const user = await UserDb.findOne({ email: body.email })
+		if (!user) { 
+			res.status(401).send({ error: error_en.login})	
 		}
+		const validPassword = await bcrypt.compare(body.password, user.password);
+		if (!validPassword) {
+			res.status(200).send({ error: error_en.login });
+		}
+		const token = jwt.sign({
+			id: user.id,
+			username: user.username
+		}, SECRET, { expiresIn: '3 hours' })
+	
+		res.send({ access_token: token })
 	}else{
 		res.status(401).send({ error: error_en.login })
 	}
@@ -39,24 +56,30 @@ router.get('/login', async (req, res) => {
 
 //Get one user by id
 router.get('/:id', function(req, res, next) {
-  UserDb.findOne(req.params.id, function(err, user) {
-    if (err) return next(err);
-    res.json(user);
-  });
+	if (!req.params.id) {
+        return res.status(400).json({ message: error_en.empty })
+    }
+	UserDb.findOne(req.params.id, function(err, user) {
+		if (err) return next(err);
+		res.json(user);
+	});
 });
 
-// Create a new user
+// Create a new user completely
 router.post("/", async (req, res) => {
-	if(isEmail(req.body.email)) {
-		if(isPassword(req.body.password)){
+	const body = req.body;
+	if (!body.username || !body.password) {
+        return res.status(400).send({ error: error_en.empty })
+    }
+	if(isEmail(body.email)) {
+		if(isPassword(body.password)){
 			bcrypt.genSalt(saltRounds, async function(err, salt) {
-				bcrypt.hash(req.body.password, salt, async function(err, hash) {
+				bcrypt.hash(body.password, salt, async function(err, hash) {
 					const user = new UserDb({
-						id : short.generate(),
-						username : req.body.username,
+						username : body.username,
 						password : hash,
-						email : req.body.email,
-						permissions: req.body.permissions ?? "user",
+						email : body.email,
+						permissions: body.permissions ?? "user",
 					})
 					await user.save()
 					res.send(user)
@@ -72,16 +95,19 @@ router.post("/", async (req, res) => {
 
 //Create a new admin path (url: /api/users/admin)
 router.post("/admin", async (req, res) => {
-	if(isEmail(req.body.email)) {
-		if(isPassword(req.body.password)){
+	const body = req.body;
+	if (!body.username || !body.password) {
+        res.status(400).send({ error: error_en.empty })
+    }
+	if(isEmail(body.email)) {
+		if(isPassword(body.password)){
 			bcrypt.genSalt(saltRounds, async function(err, salt) {
-				bcrypt.hash(req.body.password, salt, async function(err, hash) {
+				bcrypt.hash(body.password, salt, async function(err, hash) {
 					const user = new UserDb({
-						id : String(short.generate()),
-						username : req.body.username,
+						username : body.username,
 						password : hash,
-						email : req.body.email,
-						permissions: req.body.permissions ?? "admin",
+						email : body.email,
+						permissions: body.permissions ?? "admin",
 					})
 					await user.save()
 					res.send(user)
@@ -98,6 +124,9 @@ router.post("/admin", async (req, res) => {
 
 //Delete one user by id 
 router.delete("/:id", async (req, res) => {
+	if (!req.params.id) {
+        return res.status(400).send({ error: error_en.empty })
+    }
 	try {
 		await UserDb.deleteOne({id: req.params.id })
 		res.status(204).send()

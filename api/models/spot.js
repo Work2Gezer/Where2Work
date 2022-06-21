@@ -7,8 +7,8 @@ const spotSchema = mongoose.Schema({
     type: String,
     wifi: Boolean,
     rating: Number,
-    lat: Number,
-    lng: Number,
+    lat: { type: Number, required: true },
+    lng: { type: Number, required: true },
     description: String,
     tel: String,
 })

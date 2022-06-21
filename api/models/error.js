@@ -6,7 +6,10 @@ const error_fr = {
     password : "Le mot de passe est incorrect",
     user : "L'utilisateur n'existe pas",
     login : "Mail ou mot de passe incorrect",
-    checkCharPass:"Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial."
+    checkCharPass:"Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial.",
+    empty:"Un champ est vide",
+    noToken:"Aucun token",
+    badToken:"Token incorrect",
 }
 
 const error_en = {
@@ -14,7 +17,10 @@ const error_en = {
     password : "Password is not valid!",
     user : "User doesn't exist!",
     login : "Email or password is not valid!",
-    checkCharPass:"The password must contain at least 8 characters, one uppercase, one lowercase, one number and one special character."
+    checkCharPass:"The password must contain at least 8 characters, one uppercase, one lowercase, one number and one special character.",
+    empty:"Empty field",
+    noToken:"No token provided",
+    badToken:"Bad token provided"
 }
 
 
