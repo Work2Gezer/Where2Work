@@ -49,5 +49,5 @@ const styles = StyleSheet.create({
     height: Dimensions.get("window").height,
   },
 });
-
+ 
 export default Map;

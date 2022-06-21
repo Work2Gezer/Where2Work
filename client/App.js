@@ -18,7 +18,7 @@ const App = () => {
             <HomeStack.Navigator>
                 <HomeStack.Screen name='OnBoardingScreen' component={OnBoardingScreen} options={{
                     title: '', headerStyle: {
-                        backgroundColor: '#A6E4D0',
+                        backgroundColor: '#1098F7',
                     },
                 }} />
                 <HomeStack.Group

@@ -10,7 +10,7 @@ const OnboardingScreen = ({ navigation }) => {
             onDone={() => navigation.navigate('Dashboard')}
             pages={[
                 {
-                    backgroundColor: '#A6E4D0',
+                    backgroundColor: '#1098F7',
                     image: <Ionicons name="map-outline" size={50}></Ionicons>,
                     title: 'Bienvenue !',
                     subtitle: 'Bienvenue sur notre application Where2Work !',
