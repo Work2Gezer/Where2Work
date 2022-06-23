@@ -15,6 +15,9 @@ const Footer = () => {
     <>
       <View style={styles.container}>
         <View style={styles.view}>
+            <Ionicons style={styles.icon} name="add" size={30} onPress={() => navigation.navigate('LogInPage') }></Ionicons>
+        </View>
+        <View style={styles.view}>
             <Ionicons style={styles.icon} name="person" size={30} onPress={() => navigation.navigate('LogInPage') }></Ionicons>
         </View>
       </View>
@@ -26,8 +29,9 @@ const Footer = () => {
 const styles = StyleSheet.create({
   container: {
     display: "flex",
-    alignItems: "flex-end",
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "space-between",
+    flexDirection: "row",
     height: 60,
     backgroundColor: "#1098F7"
   },
@@ -38,6 +42,7 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     marginRight: 15,
+    marginLeft: 15,
     backgroundColor: 'white',
     borderRadius: 100,
     display: 'flex',

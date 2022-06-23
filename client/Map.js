@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { View, Text, StyleSheet, Dimensions } from "react-native";
 import MapView from "react-native-maps";
-import Marker from "react-native-maps";
+import Callout from "react-native-maps";
 import axios from "axios";
 import { FontAwesome } from '@expo/vector-icons';
 
@@ -29,6 +29,8 @@ const Map = () => {
       });
   }, []);
 
+  const pinColor = '#1098F7';
+
   return (
     <>
       <View style={styles.container}>
@@ -43,13 +45,19 @@ const Map = () => {
         >
           {data.map((marker) => (
             <MapView.Marker
+              pinColor={pinColor}
               style={styles.marker}
               key={marker._id}
               coordinate={{ latitude : marker.lat , longitude : marker.lng }}
               title={marker.name}
               description={marker.description}
-              color={"blue"}
-            />
+            >
+              <Callout>
+                <View style={styles.map_view}>
+                  <Text>{marker.name}</Text>
+                </View>
+              </Callout>
+            </MapView.Marker>
           ))}
         </MapView>
       </View>
@@ -70,7 +78,11 @@ const styles = StyleSheet.create({
   },
   marker: {
     position: "absolute",
-    backgroundColor: "blue"
+  },
+  map_view: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center"
   }
 });
 
