@@ -8,6 +8,8 @@ import {
     Alert,
     TouchableOpacity,
 } from "react-native";
+import axios from "axios";
+
 
 const SignInPage = ({ navigation: { navigate } }) => {
     const [email, setEmail] = useState("");
@@ -25,6 +27,19 @@ const SignInPage = ({ navigation: { navigate } }) => {
             Alert.alert("Confirm password is different")
         } else
         Alert.alert("Sign In successful")
+
+        const path = "http://192.168.1.97:3000/users/signup";
+        axios.post( path, {
+            email: email,
+            password: password
+          })
+          .then(function (response) {
+            console.log("Sucess", response);
+            setLoginStatus("Sucess")
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
     }
 
     return (

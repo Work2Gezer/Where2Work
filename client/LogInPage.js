@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
     StyleSheet,
     Text,
@@ -8,17 +8,36 @@ import {
     Alert,
     TouchableOpacity,
 } from "react-native";
+import axios from "axios";
+
 
 const LogInPage = ({ navigation: { navigate } }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [loginStatus, setLoginStatus] = useState("")
 
+
+    
     const sendDataLogin = () => {
         if (email.length === 0 || password.length === 0) {
             Alert.alert("a required field is empty")
         } else
         Alert.alert("Log In successful")
+        const path = "http://192.168.1.97:3000/users/login";
+        axios.post( path, {
+            email: email,
+            password: password
+          })
+          .then(function (response) {
+            console.log("Sucess", response);
+            setLoginStatus("Sucess")
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
     }
+    
+
 
     return (
         <View style={styles.container}>

@@ -19,7 +19,6 @@ const Map = () => {
       .get(path)
       .then((response) => {
         setData(response.data);
-        console.log(response.data[0]);
       })
       .catch(function (error) {
         console.log(
