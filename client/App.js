@@ -9,6 +9,7 @@ import LogInPage from './LogInPage';
 import SignInPage from './SignInPage';
 import { Alert, LogBox } from 'react-native';
 import Footer from './Footer';
+import CreateMarkerPage from './CreateMarkerPage';
 
 const HomeStack = createStackNavigator()
 LogBox.ignoreAllLogs() // désactive les warnings jaunes pas beau du tout
@@ -44,6 +45,7 @@ const App = () => {
                     <HomeStack.Screen name='LogInPage' component={LogInPage} options={{title: "Login or Sign Up"}}/>
                     <HomeStack.Screen name='SigInInPage' component={SignInPage}  options={{title: "Sign Up" }}/>
                     <HomeStack.Screen name='Footer' component={Footer} />
+                    <HomeStack.Screen name='CreateMarkerPage' component={CreateMarkerPage} />
                 </HomeStack.Group>
             </HomeStack.Navigator>
         </NavigationContainer>

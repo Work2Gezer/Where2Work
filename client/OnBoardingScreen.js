@@ -14,7 +14,7 @@ const OnboardingScreen = ({ navigation }) => {
                 {
                     backgroundColor: '#1098F7',
                     image: <Image style={styles.logo} source={require('./assets/where2work.png')} />,
-                    title: 'Bienvenue !',
+                    title: 'Welcome !',
                     subtitle: 'Welcome to Where2Work !',
                 },
                 {

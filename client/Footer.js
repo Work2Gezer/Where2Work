@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import React from 'react';
+import { StyleSheet, Image, View } from 'react-native';
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from '@react-navigation/native';
 
@@ -8,17 +8,18 @@ import { useNavigation } from '@react-navigation/native';
 
 const Footer = () => {
 
-    const navigation = useNavigation(); 
+  const navigation = useNavigation();
 
 
   return (
     <>
       <View style={styles.container}>
         <View style={styles.view}>
-            <Ionicons style={styles.icon} name="add" size={30} onPress={() => navigation.navigate('LogInPage') }></Ionicons>
+          <Ionicons style={styles.icon} name="add" size={30} onPress={() => navigation.navigate('CreateMarkerPage')}></Ionicons>
         </View>
+        <Image style={styles.logoW2W} source={require('./assets/where2work.png')} />
         <View style={styles.view}>
-            <Ionicons style={styles.icon} name="person" size={30} onPress={() => navigation.navigate('LogInPage') }></Ionicons>
+          <Ionicons style={styles.icon} name="person" size={30} onPress={() => navigation.navigate('LogInPage')}></Ionicons>
         </View>
       </View>
     </>
@@ -48,7 +49,11 @@ const styles = StyleSheet.create({
     display: 'flex',
     justifyContent: "center",
     alignItems: "center"
-  }
+  },
+  logoW2W: {
+    height: 60,
+    width: 60,
+  },
 });
 
 export default Footer;
