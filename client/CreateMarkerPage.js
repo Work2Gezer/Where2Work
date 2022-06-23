@@ -4,6 +4,7 @@ import { Picker } from "@react-native-picker/picker";
 import Geocoder from "react-native-geocoding";
 
 
+Geocoder.init(""); //mettre son api key ici (pas compris comment faire un .env en RN)
 
 const CreateMarkerPage = () => {
     const [adress, setAdress] = useState("");
@@ -16,7 +17,12 @@ const CreateMarkerPage = () => {
         } else
         Alert.alert("Your marker has just been added to the map!")
         console.log("data Marker",adress,description,enable);
-        // faire le reverse geocoding ici grace a adress
+        Geocoder.from(`${adress}`)
+		.then(json => {
+			let location = json.results[0].geometry.location;
+			console.log("testttt",location);
+		})
+		.catch(error => console.warn(error));
     }
 
     return (
