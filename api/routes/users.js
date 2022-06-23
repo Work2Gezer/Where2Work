@@ -54,12 +54,12 @@ router.post('/login', async (req, res) => {
 		if (!validPassword) {
 			res.status(200).send({ error: error_en.login });
 		}
-		// const token = jwt.sign({
-		// 	id: user.id,
-		// 	username: user.username
-		// }, SECRET, { expiresIn: '3 hours' })
+		const token = jwt.sign({
+			id: user.id,
+			username: user.username
+		}, process.env.SECRET_JWT, { expiresIn: '3 hours' })
 
-		res.send({ access_token: "token" })
+		res.send({ access_token: token })
 	}else{
 		res.status(401).send({ error: error_en.login })
 	}

@@ -23,15 +23,10 @@ router.get('/:id', function(req, res, next) {
 
 // Create a new spot
 router.post("/add", async (req, res) => {
-	const spot = new SpotDb({
-		id : short.generate(),
-		name : req.body.name,
-		adress : req.body.adress,
-		description : req.body.description ?? "",
-		tel : req.body.tel,
-		lat : req.body.lat,
-		lng : req.body.lng,
-	})
+	if(!req.body) {
+		return res.status(400).json({ message: error_en.empty })
+	}
+	const spot = new SpotDb(req.body)
 	await spot.save()
 	res.send(spot)
 })
