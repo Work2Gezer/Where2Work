@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 const {isEmail, isPassword} = require('../scripts/services.js')
 const {error_en} = require('../models/error') //change language here 
 const { initdb } = require('../scripts/connection.js')
+const bcrypt = require('bcrypt');
 
 initdb()
 
@@ -33,7 +34,7 @@ router.post("/signup", async (req, res) => {
   });
 
 //login user by email and password
-router.get('/login', async (req, res) => {
+router.post('/login', async (req, res) => {
 	const body = req.body;
 	if (!body.email || !body.password) {
         return res.status(400).json({ message: error_en.empty })
