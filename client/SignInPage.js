@@ -42,7 +42,7 @@ const SignInPage = ({ navigation: { navigate } }) => {
             password: password
           })
           .then(function (response) {
-            console.log("Sucess");
+            console.log("Sucess :");
             setLoginStatus("Sucess")
           })
           .catch(function (error) {

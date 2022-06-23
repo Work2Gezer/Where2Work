@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import * as Location from 'expo-location';
 import Map from './Map';
+import Footer from './Footer';
 
 const Dashboard = ({ navigation: { navigate } }) => {
 
@@ -33,14 +34,15 @@ const Dashboard = ({ navigation: { navigate } }) => {
     <>
       <View style={styles.container}>
         <Map />
-        <Text>{text}</Text>
-        <Button
+        {/* <Text>{text}</Text> */}
+        {/* <Button
           onPress={() =>
             navigate('LogInPage')
           }
           title="Log toi batard"
-        />
+        /> */}
       </View>
+      <Footer/>
     </>
   )
 }
