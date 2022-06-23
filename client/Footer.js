@@ -1,24 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
-import * as Location from 'expo-location';
-import Map from './Map';
 import { Ionicons } from "@expo/vector-icons";
+import { useNavigation } from '@react-navigation/native';
+
+
 
 
 const Footer = () => {
 
-
-
-  useEffect(() => {
-
-  }, []);
-
+    const navigation = useNavigation(); 
 
 
   return (
     <>
       <View style={styles.container}>
-        <Ionicons name="person" size={30} onPress={() => Alert.alert('ici on cherche une ville par exemple')}></Ionicons>
+        <View style={styles.view}>
+            <Ionicons style={styles.icon} name="person" size={30} onPress={() => navigation.navigate('LogInPage') }></Ionicons>
+        </View>
       </View>
     </>
   )
@@ -28,11 +26,24 @@ const Footer = () => {
 const styles = StyleSheet.create({
   container: {
     display: "flex",
-    alignItems: 'center',
+    alignItems: "flex-end",
     justifyContent: 'center',
     height: 60,
-    backgroundColor: "blue"
+    backgroundColor: "#1098F7"
   },
+  icon: {
+    color: '#1098F7'
+  },
+  view: {
+    width: 40,
+    height: 40,
+    marginRight: 15,
+    backgroundColor: 'white',
+    borderRadius: 100,
+    display: 'flex',
+    justifyContent: "center",
+    alignItems: "center"
+  }
 });
 
 export default Footer;

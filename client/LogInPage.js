@@ -9,6 +9,8 @@ import {
     TouchableOpacity,
 } from "react-native";
 import axios from "axios";
+import { Ionicons } from "@expo/vector-icons";
+
 
 
 const LogInPage = ({ navigation: { navigate } }) => {
@@ -47,7 +49,7 @@ const LogInPage = ({ navigation: { navigate } }) => {
                 <TextInput
                     style={styles.TextInput}
                     placeholder="Email"
-                    placeholderTextColor="#003f5c"
+                    placeholderTextColor="#fff"
                     onChangeText={(email) => setEmail(email)}
                 />
             </View>
@@ -56,7 +58,7 @@ const LogInPage = ({ navigation: { navigate } }) => {
                 <TextInput
                     style={styles.TextInput}
                     placeholder="Password"
-                    placeholderTextColor="#003f5c"
+                    placeholderTextColor="#fff"
                     secureTextEntry={true}
                     onChangeText={(password) => setPassword(password)}
                 />
@@ -71,7 +73,8 @@ const LogInPage = ({ navigation: { navigate } }) => {
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.loginBtn} onPress={() => navigate('SigInInPage')}>
-                <Text style={styles.loginText}>SIGN IN</Text>
+                <Text style={styles.loginText}>SIGN UP</Text>
+                <Ionicons style={styles.icon} name="arrow-forward" size={30}></Ionicons>
             </TouchableOpacity>
         </View>
     );
@@ -86,13 +89,13 @@ const styles = StyleSheet.create({
     },
 
     logoW2W: {
-        height: 120,
-        width: 120,
+        height: 200,
+        width: 200,
         marginBottom: 20,
     },
 
     inputView: {
-        backgroundColor: "#FFC0CB",
+        backgroundColor: "#DECCCC",
         borderRadius: 30,
         width: "70%",
         height: 45,
@@ -110,6 +113,8 @@ const styles = StyleSheet.create({
     forgot_button: {
         height: 30,
         marginBottom: 30,
+        color: "#1098F7",
+        textDecorationLine: "underline"
     },
 
     loginBtn: {
@@ -119,8 +124,17 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
         marginTop: 40,
-        backgroundColor: "#FF1493",
+        backgroundColor: "#1098F7",
+        display: "flex",
+        flexDirection: "row"
+
     },
+    loginText: {
+        color: "#fff"
+    },
+    icon: {
+        color: "#fff"
+    }
 });
 
 export default LogInPage;

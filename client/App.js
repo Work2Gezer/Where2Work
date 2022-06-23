@@ -7,8 +7,8 @@ import Dashboard from './Dashboard';
 import OnBoardingScreen from './OnBoardingScreen';
 import LogInPage from './LogInPage';
 import SignInPage from './SignInPage';
-
 import { Alert, LogBox } from 'react-native';
+import Footer from './Footer';
 
 const HomeStack = createStackNavigator()
 LogBox.ignoreAllLogs() // désactive les warnings jaunes pas beau du tout
@@ -25,7 +25,7 @@ const App = () => {
                 <HomeStack.Group
                     screenOptions={{
                         headerStyle: {
-                            backgroundColor: 'blue',
+                            backgroundColor: '#1098F7',
                         },
                         headerTintColor: '#fff',
                         headerTitleStyle: {
@@ -37,12 +37,13 @@ const App = () => {
                         options={{
                             title: 'My home',
                             headerRight: () => (
-                                <Ionicons name="search-outline" size={30} onPress={() => Alert.alert('ici on cherche une ville par exemple')}></Ionicons>
+                                <Ionicons name="search-outline" size={30} style={{marginRight: 15, color: "#fff"}} onPress={() => Alert.alert('ici on cherche une ville par exemple')}></Ionicons>
                             )
                         }}
                     />
-                    <HomeStack.Screen name='LogInPage' component={LogInPage} />
-                    <HomeStack.Screen name='SigInInPage' component={SignInPage} />
+                    <HomeStack.Screen name='LogInPage' component={LogInPage} options={{title: "Login or Sign Up"}}/>
+                    <HomeStack.Screen name='SigInInPage' component={SignInPage}  options={{title: "Sign Up" }}/>
+                    <HomeStack.Screen name='Footer' component={Footer} />
                 </HomeStack.Group>
             </HomeStack.Navigator>
         </NavigationContainer>
