@@ -50,6 +50,7 @@ const LogInPage = ({ navigation: { navigate } }) => {
                     style={styles.TextInput}
                     placeholder="Email"
                     placeholderTextColor="#fff"
+                    color="#fff"
                     onChangeText={(email) => setEmail(email)}
                 />
             </View>
@@ -59,6 +60,7 @@ const LogInPage = ({ navigation: { navigate } }) => {
                     style={styles.TextInput}
                     placeholder="Password"
                     placeholderTextColor="#fff"
+                    color="#fff"
                     secureTextEntry={true}
                     onChangeText={(password) => setPassword(password)}
                 />

@@ -15,13 +15,13 @@ const OnboardingScreen = ({ navigation }) => {
                     backgroundColor: '#1098F7',
                     image: <Image style={styles.logo} source={require('./assets/where2work.png')} />,
                     title: 'Bienvenue !',
-                    subtitle: 'Bienvenue sur notre application Where2Work !',
+                    subtitle: 'Welcome to Where2Work !',
                 },
                 {
                     backgroundColor: '#1098F7',
                     image: <Image style={styles.logo} source={require('./assets/where2work.png')} />,
                     title: 'Where2Work',
-                    subtitle: 'Organiser, partager vos endroits préférés pour travailler 💻',
+                    subtitle: 'Find and share your favorite working spots 💻',
                 }
             ]}
         />
@@ -35,8 +35,11 @@ const styles = StyleSheet.create({
         alignItems: "center"
     },
     logo: {
-        width: 250,
-        height: 250
+        width: 300,
+        height: 300,
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center"
     }
 })
 

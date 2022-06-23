@@ -9,6 +9,8 @@ import {
     TouchableOpacity,
 } from "react-native";
 import axios from "axios";
+import { Ionicons } from "@expo/vector-icons";
+
 
 
 const SignInPage = ({ navigation: { navigate } }) => {
@@ -60,7 +62,8 @@ const SignInPage = ({ navigation: { navigate } }) => {
                 <TextInput
                     style={styles.TextInput}
                     placeholder="Email"
-                    placeholderTextColor="#003f5c"
+                    placeholderTextColor="#fff"
+                    color="#fff"
                     onChangeText={(email) => setEmail(email)}
                 />
             </View>
@@ -69,7 +72,8 @@ const SignInPage = ({ navigation: { navigate } }) => {
                 <TextInput
                     style={styles.TextInput}
                     placeholder="Password"
-                    placeholderTextColor="#003f5c"
+                    placeholderTextColor="#fff"
+                    color="#fff"
                     secureTextEntry={true}
                     onChangeText={(password) => setPassword(password)}
                 />
@@ -79,7 +83,8 @@ const SignInPage = ({ navigation: { navigate } }) => {
                 <TextInput
                     style={styles.TextInput}
                     placeholder=" Confirm Password"
-                    placeholderTextColor="#003f5c"
+                    placeholderTextColor="#fff"
+                    color="#fff"
                     secureTextEntry={true}
                     onChangeText={(confirmPassword) => setConfirmPassword(confirmPassword)}
                 />
@@ -90,10 +95,11 @@ const SignInPage = ({ navigation: { navigate } }) => {
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.loginBtn} onPress={sendDataLogin}>
-                <Text style={styles.loginText}>SIGN IN</Text>
+                <Text style={styles.loginText}>SIGN UP</Text>
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.loginBtn} onPress={() => navigate('LogInPage')}>
+                <Ionicons style={styles.icon} name="arrow-back" size={30}></Ionicons>
                 <Text style={styles.loginText}>Return To Login Page</Text>
             </TouchableOpacity>
         </View>
@@ -109,13 +115,13 @@ const styles = StyleSheet.create({
     },
 
     logoW2W: {
-        height: 120,
-        width: 120,
+        height: 200,
+        width: 200,
         marginBottom: 20,
     },
 
     inputView: {
-        backgroundColor: "#FFC0CB",
+        backgroundColor: "#DECCCC",
         borderRadius: 30,
         width: "70%",
         height: 45,
@@ -133,6 +139,8 @@ const styles = StyleSheet.create({
     forgot_button: {
         height: 30,
         marginBottom: 30,
+        color: "#1098F7",
+        textDecorationLine: "underline"
     },
 
     loginBtn: {
@@ -141,9 +149,17 @@ const styles = StyleSheet.create({
         height: 50,
         alignItems: "center",
         justifyContent: "center",
-        marginTop: 40,
-        backgroundColor: "#FF1493",
+        marginTop: 10,
+        backgroundColor: "#1098F7",
+        display: "flex",
+        flexDirection: "row"
     },
+    loginText: {
+        color: "#fff"
+    },
+    icon: {
+        color: "#fff"
+    }
 });
 
 export default SignInPage;
