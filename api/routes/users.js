@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 const {isEmail, isPassword} = require('../scripts/services.js')
 const {error_en} = require('../models/error') //change language here 
 const { initdb } = require('../scripts/connection.js')
+const bcrypt = require('bcrypt');
 
 
 initdb()

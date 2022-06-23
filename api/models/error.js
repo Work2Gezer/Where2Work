@@ -20,7 +20,8 @@ const error_en = {
     checkCharPass:"The password must contain at least 8 characters, one uppercase, one lowercase, one number and one special character.",
     empty:"Empty field",
     noToken:"No token provided",
-    badToken:"Bad token provided"
+    badToken:"Bad token provided",
+    favSuccess:"Favortite added successfully",
 }
 
 
