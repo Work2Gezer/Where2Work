@@ -7,7 +7,6 @@ import Dashboard from './Dashboard';
 import OnBoardingScreen from './OnBoardingScreen';
 import LogInPage from './LogInPage';
 import SignInPage from './SignInPage';
-
 import { Alert, LogBox } from 'react-native';
 
 const HomeStack = createStackNavigator()
