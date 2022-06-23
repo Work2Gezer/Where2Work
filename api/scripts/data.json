@@ -114,13 +114,11 @@
         ],
         "users":[
             {
-                "username":"John",
                 "password":"pass",
                 "email":"test",
                 "permissions": "admin"
             },
             {
-                "username":"Jean",
                 "password":"puss",
                 "email":"tust"
             }

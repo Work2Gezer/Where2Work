@@ -15,6 +15,11 @@ const SignInPage = ({ navigation: { navigate } }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
+    const [loginStatus, setLoginStatus] = useState("")
+
+    function isValidEmail(email) {
+        return /\S+@\S+\.\S+/.test(email);
+      }
 
     const sendDataLogin = () => {
         console.log("input email : ", email);
@@ -25,7 +30,10 @@ const SignInPage = ({ navigation: { navigate } }) => {
             Alert.alert("a required field is empty")
         } else if (password !== confirmPassword) {
             Alert.alert("Confirm password is different")
-        } else
+        } else if(!isValidEmail(email)){
+            Alert.alert("Email is not valid")
+        }else{
+
         Alert.alert("Sign In successful")
 
         const path = "http://192.168.1.97:3000/users/signup";
@@ -34,13 +42,15 @@ const SignInPage = ({ navigation: { navigate } }) => {
             password: password
           })
           .then(function (response) {
-            console.log("Sucess", response);
+            console.log("Sucess");
             setLoginStatus("Sucess")
           })
           .catch(function (error) {
             console.log(error);
           });
+        }
     }
+
 
     return (
         <View style={styles.container}>

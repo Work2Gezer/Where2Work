@@ -7,6 +7,7 @@ const {isEmail, isPassword} = require('../scripts/services.js')
 const {error_en} = require('../models/error') //change language here 
 const { initdb } = require('../scripts/connection.js')
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken')
 
 
 initdb()
@@ -28,34 +29,37 @@ router.post("/signup", async (req, res) => {
     if (!(body.email && body.password)) {
       return res.status(400).send({ error: error_en.empty });
     }
+	console.log("body :", body)
     const user = new UserDb(body);
     const salt = await bcrypt.genSalt(saltRounds);
     user.password = await bcrypt.hash(user.password, salt);
+	console.log("user :", user)
     user.save().then((doc) => res.status(201).send(doc));
   });
 
 //login user by email and password
 router.post('/login', async (req, res) => {
 	const body = req.body;
-	console.log(body.email, body.password)
 	if (!body.email || !body.password) {
-        return res.status(400).json({ message: error_en.empty })
+		return res.status(400).json({ message: error_en.empty })
     }
 	if(isEmail(body.email)){
 		const user = await UserDb.findOne({ email: body.email })
+		console.log("user :", user)
 		if (!user) { 
 			res.status(401).send({ error: error_en.login})	
 		}
-		const validPassword = await bcrypt.compare(body.password, user.password);
+		console.log(body.password, user?.password)
+		const validPassword = await bcrypt.compare(body.password, user?.password);
 		if (!validPassword) {
 			res.status(200).send({ error: error_en.login });
 		}
-		const token = jwt.sign({
-			id: user.id,
-			username: user.username
-		}, SECRET, { expiresIn: '3 hours' })
-	
-		res.send({ access_token: token })
+		// const token = jwt.sign({
+		// 	id: user.id,
+		// 	username: user.username
+		// }, SECRET, { expiresIn: '3 hours' })
+
+		res.send({ access_token: "token" })
 	}else{
 		res.status(401).send({ error: error_en.login })
 	}
@@ -75,15 +79,11 @@ router.get('/:id', function(req, res, next) {
 // Create a new user completely
 router.post("/", async (req, res) => {
 	const body = req.body;
-	if (!body.username || !body.password) {
-        return res.status(400).send({ error: error_en.empty })
-    }
 	if(isEmail(body.email)) {
 		if(isPassword(body.password)){
 			bcrypt.genSalt(saltRounds, async function(err, salt) {
 				bcrypt.hash(body.password, salt, async function(err, hash) {
 					const user = new UserDb({
-						username : body.username,
 						password : hash,
 						email : body.email,
 						permissions: body.permissions ?? "user",
@@ -103,15 +103,12 @@ router.post("/", async (req, res) => {
 //Create a new admin path (url: /api/users/admin)
 router.post("/admin", async (req, res) => {
 	const body = req.body;
-	if (!body.username || !body.password) {
-        res.status(400).send({ error: error_en.empty })
-    }
+
 	if(isEmail(body.email)) {
 		if(isPassword(body.password)){
 			bcrypt.genSalt(saltRounds, async function(err, salt) {
 				bcrypt.hash(body.password, salt, async function(err, hash) {
 					const user = new UserDb({
-						username : body.username,
 						password : hash,
 						email : body.email,
 						permissions: body.permissions ?? "admin",
