@@ -6,6 +6,7 @@ import { Ionicons } from "@expo/vector-icons";
 import Dashboard from './Dashboard';
 import OnBoardingScreen from './OnBoardingScreen';
 import LogInPage from './LogInPage';
+import SignInPage from './SignInPage';
 
 import { Alert, LogBox } from 'react-native';
 
@@ -29,18 +30,19 @@ const App = () => {
                         headerTintColor: '#fff',
                         headerTitleStyle: {
                             fontWeight: 'bold',
-                        },
-                        headerRight: () => (
-                            <Ionicons name="search-outline" size={30} onPress={() => Alert.alert('ici on cherche une ville par exemple')}></Ionicons>
-                        )
+                        }
                     }}
                 >
                     <HomeStack.Screen name='Dashboard' component={Dashboard}
                         options={{
                             title: 'My home',
+                            headerRight: () => (
+                                <Ionicons name="search-outline" size={30} onPress={() => Alert.alert('ici on cherche une ville par exemple')}></Ionicons>
+                            )
                         }}
                     />
                     <HomeStack.Screen name='LogInPage' component={LogInPage} />
+                    <HomeStack.Screen name='SigInInPage' component={SignInPage} />
                 </HomeStack.Group>
             </HomeStack.Navigator>
         </NavigationContainer>

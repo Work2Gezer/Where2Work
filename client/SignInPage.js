@@ -9,15 +9,22 @@ import {
     TouchableOpacity,
 } from "react-native";
 
-const LogInPage = ({ navigation: { navigate } }) => {
+const SignInPage = ({ navigation: { navigate } }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
 
     const sendDataLogin = () => {
-        if (email.length === 0 || password.length === 0) {
+        console.log("input email : ", email);
+        console.log("input password : ", password);
+        console.log("input Confirm password : ", confirmPassword);
+
+        if (email.length === 0 || password.length === 0 || confirmPassword.length === 0) {
             Alert.alert("a required field is empty")
+        } else if (password !== confirmPassword) {
+            Alert.alert("Confirm password is different")
         } else
-        Alert.alert("Log In successful")
+        Alert.alert("Sign In successful")
     }
 
     return (
@@ -43,16 +50,26 @@ const LogInPage = ({ navigation: { navigate } }) => {
                 />
             </View>
 
+            <View style={styles.inputView}>
+                <TextInput
+                    style={styles.TextInput}
+                    placeholder=" Confirm Password"
+                    placeholderTextColor="#003f5c"
+                    secureTextEntry={true}
+                    onChangeText={(confirmPassword) => setConfirmPassword(confirmPassword)}
+                />
+            </View>
+
             <TouchableOpacity>
                 <Text style={styles.forgot_button}>Forgot Password?</Text>
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.loginBtn} onPress={sendDataLogin}>
-                <Text style={styles.loginText}>LOGIN</Text>
+                <Text style={styles.loginText}>SIGN IN</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.loginBtn} onPress={() => navigate('SigInInPage')}>
-                <Text style={styles.loginText}>SIGN IN</Text>
+            <TouchableOpacity style={styles.loginBtn} onPress={() => navigate('LogInPage')}>
+                <Text style={styles.loginText}>Return To Login Page</Text>
             </TouchableOpacity>
         </View>
     );
@@ -104,4 +121,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default LogInPage;
+export default SignInPage;
