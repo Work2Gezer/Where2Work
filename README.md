@@ -2,6 +2,66 @@
 
 ## Installation du back
 
+# RESTful API Node Express Mongoose
+
+The project builds RESTful APIs using Node.js, Express and Mongoose, ...
+
+## Manual Installation
+
+Clone the repo:
+
+```bash
+git clone https://github.com/Work2Gezer/Where2Work
+cd api
+```
+
+Install the dependencies:
+
+```bash
+npm install --save
+```
+
+Set the environment variables:
+
+```bash
+cp .env.sample .env
+# open .env and modify the environment variables
+```
+
+Generate JWT RS256 key:
+
+```bash
+ssh-keygen -t rsa -P "" -b 2048 -m PEM -f storage/jwtRS256.key
+ssh-keygen -e -m PEM -f storage/jwtRS256.key > storage/jwtRS256.key.pub
+# encode base64
+cat storage/jwtRS256.key | base64 # edit 
+cat storage/jwtRS256.key.pub | base64 # edit 
+```
+
+## Commands
+
+Running in development:
+
+```bash
+node scripts/initDatabase.js 
+npm run start
+```
+
+Running in production:
+
+```bash
+# build
+npm run build
+# start
+npm run prod
+```
+
+
+## License
+
+[MIT](LICENSE)
+
+
 ## Installation du client avec expo
 
 Installation des dépendances :
