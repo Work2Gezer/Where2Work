@@ -18,7 +18,7 @@ Run client :
 ```bash
 npm start
 ```
-## Deployment
+## Deploiement
 
 Ce projet utilise Metro et Expo, et peut être déployé sur ios, android ou sur le web.
 
