@@ -23,6 +23,7 @@ router.get('/:id', function(req, res, next) {
 
 // Create a new spot
 router.post("/add", async (req, res) => {
+	console.log("add :", req.body)
 	if(!req.body) {
 		return res.status(400).json({ message: error_en.empty })
 	}

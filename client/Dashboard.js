@@ -40,7 +40,7 @@ const Dashboard = ({ navigation: { navigate } }) => {
     const LATITUDE_DELTA = 0.2;
     const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 
-    const path = "http://192.168.1.97:3000/spots";
+    const path = "http://192.168.188.242:3000/spots";
     useEffect(() => {
       axios
         .get(path)

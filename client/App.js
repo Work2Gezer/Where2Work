@@ -45,7 +45,7 @@ const App = () => {
                     <HomeStack.Screen name='LogInPage' component={LogInPage} options={{ title: "Login or Sign Up" }} />
                     <HomeStack.Screen name='SigInInPage' component={SignInPage} options={{ title: "Sign Up" }} />
                     <HomeStack.Screen name='Footer' component={Footer} />
-                    <HomeStack.Screen name='CreateMarkerPage' component={CreateMarkerPage} />
+                    <HomeStack.Screen name='CreateMarkerPage' component={CreateMarkerPage} options={{ title: "Add a spot" }}/>
                 </HomeStack.Group>
             </HomeStack.Navigator>
         </NavigationContainer>
