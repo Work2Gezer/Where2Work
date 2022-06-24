@@ -12,7 +12,7 @@ import Footer from './Footer';
 import CreateMarkerPage from './CreateMarkerPage';
 
 const HomeStack = createStackNavigator()
-LogBox.ignoreAllLogs() // désactive les warnings jaunes pas beau du tout
+LogBox.ignoreAllLogs()
 
 const App = () => {
     return (
@@ -38,12 +38,12 @@ const App = () => {
                         options={{
                             title: 'My home',
                             headerRight: () => (
-                                <Ionicons name="search-outline" size={30} style={{marginRight: 15, color: "#fff"}} onPress={() => Alert.alert('ici on cherche une ville par exemple')}></Ionicons>
+                                <Ionicons name="search-outline" size={30} style={{ marginRight: 15, color: "#fff" }} onPress={() => Alert.alert('ici on cherche une ville par exemple')}></Ionicons>
                             )
                         }}
                     />
-                    <HomeStack.Screen name='LogInPage' component={LogInPage} options={{title: "Login or Sign Up"}}/>
-                    <HomeStack.Screen name='SigInInPage' component={SignInPage}  options={{title: "Sign Up" }}/>
+                    <HomeStack.Screen name='LogInPage' component={LogInPage} options={{ title: "Login or Sign Up" }} />
+                    <HomeStack.Screen name='SigInInPage' component={SignInPage} options={{ title: "Sign Up" }} />
                     <HomeStack.Screen name='Footer' component={Footer} />
                     <HomeStack.Screen name='CreateMarkerPage' component={CreateMarkerPage} />
                 </HomeStack.Group>

@@ -21,7 +21,7 @@ const SignInPage = ({ navigation: { navigate } }) => {
 
     function isValidEmail(email) {
         return /\S+@\S+\.\S+/.test(email);
-      }
+    }
 
     const sendDataLogin = () => {
         console.log("input email : ", email);
@@ -32,24 +32,24 @@ const SignInPage = ({ navigation: { navigate } }) => {
             Alert.alert("a required field is empty")
         } else if (password !== confirmPassword) {
             Alert.alert("Confirm password is different")
-        } else if(!isValidEmail(email)){
+        } else if (!isValidEmail(email)) {
             Alert.alert("Email is not valid")
-        }else{
+        } else {
 
-        Alert.alert("Sign In successful")
+            Alert.alert("Sign In successful")
 
-        const path = "http://192.168.1.97:3000/users/signup";
-        axios.post( path, {
-            email: email,
-            password: password
-          })
-          .then(function (response) {
-            console.log("Sucess :");
-            setLoginStatus("Sucess")
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
+            const path = "http://192.168.1.97:3000/users/signup";
+            axios.post(path, {
+                email: email,
+                password: password
+            })
+                .then(function (response) {
+                    console.log("Sucess :");
+                    setLoginStatus("Sucess")
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
         }
     }
 

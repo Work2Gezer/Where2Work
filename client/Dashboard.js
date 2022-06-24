@@ -4,7 +4,7 @@ import * as Location from "expo-location";
 import MapView from "react-native-maps";
 import axios from "axios";
 import Footer from "./Footer";
-import {Callout} from "react-native-maps";
+import { Callout } from "react-native-maps";
 
 
 const Dashboard = ({ navigation: { navigate } }) => {
@@ -51,7 +51,7 @@ const Dashboard = ({ navigation: { navigate } }) => {
         .catch(function (error) {
           console.log(
             "There has been a problem with your fetch operation: " +
-              error.message
+            error.message
           );
           // ADD THIS THROW error
           throw error;
@@ -61,11 +61,11 @@ const Dashboard = ({ navigation: { navigate } }) => {
     let typeColor = "#1098F7"
 
     function findColor(type) {
-      if(type === "cafe"){
+      if (type === "cafe") {
         return "#462e01"
-      }else if(type === "parc"){
+      } else if (type === "parc") {
         return "#006f43"
-      }else if(type === "bibliotheque"){
+      } else if (type === "bibliotheque") {
         return "#1098F7"
       }
     }
@@ -81,7 +81,7 @@ const Dashboard = ({ navigation: { navigate } }) => {
             longitudeDelta: LONGITUDE_DELTA,
           }}
         >
-          {data.map((marker) =>(
+          {data.map((marker) => (
             <MapView.Marker
               key={marker._id}
               coordinate={{ latitude: marker.lat, longitude: marker.lng }}
@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
   },
   map: {
     width: Dimensions.get("window").width,
-    height: Dimensions.get("window").height -100,
+    height: Dimensions.get("window").height - 100,
   },
   marker: {
     position: "absolute",
@@ -142,7 +142,7 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   callout_style: {
-    height: 200, 
+    height: 200,
     width: 200,
     borderRadius: "20px",
     display: "flex",

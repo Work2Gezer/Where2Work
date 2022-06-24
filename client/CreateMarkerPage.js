@@ -4,7 +4,7 @@ import { Picker } from "@react-native-picker/picker";
 import Geocoder from "react-native-geocoding";
 
 
-Geocoder.init(""); //mettre son api key ici (pas compris comment faire un .env en RN)
+Geocoder.init("AIzaSyCd3XKA0tfKWkWVXmdIeYZCBHovy8Drr24"); //mettre son api key ici (pas compris comment faire un .env en RN)
 
 const CreateMarkerPage = () => {
     const [adress, setAdress] = useState("");

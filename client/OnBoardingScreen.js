@@ -1,8 +1,6 @@
 import React from 'react'
 import { Image, StyleSheet } from 'react-native'
 import Onboarding from 'react-native-onboarding-swiper';
-import { Ionicons } from "@expo/vector-icons";
-
 
 const OnboardingScreen = ({ navigation }) => {
     return (

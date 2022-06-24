@@ -4,12 +4,9 @@ import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from '@react-navigation/native';
 
 
-
-
 const Footer = () => {
 
   const navigation = useNavigation();
-
 
   return (
     <>
